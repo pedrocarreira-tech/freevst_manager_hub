@@ -1,0 +1,1 @@
+{"name": "vst-manager-backend", "scripts": {"start": "node server.js"}}
