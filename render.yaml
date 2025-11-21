@@ -1,8 +1,9 @@
 services:
   - type: web
-    name: vst-manager-backend
+    name: freevst-manager-backend
     env: node
     plan: free
+    rootDir: backend
     buildCommand: npm install
     startCommand: node server.js
     envVars:
@@ -12,8 +13,12 @@ services:
         sync: false
       - key: JWT_SECRET
         sync: false
+      - key: NEXT_PUBLIC_API_URL
+        sync: false
+
   - type: static
-    name: vst-manager-frontend
+    name: freevst-manager-frontend
     env: static
+    rootDir: frontend
     buildCommand: npm run build
     staticPublishPath: out
