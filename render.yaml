@@ -16,9 +16,10 @@ services:
       - key: NEXT_PUBLIC_API_URL
         sync: false
 
-  - type: static
+  - type: web
     name: freevst-manager-frontend
     env: static
+    plan: free
     rootDir: frontend
-    buildCommand: npm run build
-    staticPublishPath: out
+    buildCommand: npm install && npm run build && npm run export
+    startCommand: npx serve out
